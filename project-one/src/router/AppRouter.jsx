@@ -9,24 +9,25 @@ import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
   return (
+    // create routes for all the pages
     <div>
       <BrowserRouter>
       <Navbar />
       <Routes>
+        {/* public routes any user can access */}
         <Route path="/" element={<Home/>}/>
-        
-        <Route path="expert" element={<Expert/>}/>
-        <Route path="services" element={<Services/>}/>
         <Route path="login" element={<Login/>}/>
-        {/* imp section */}
+
+        {/* private routes only accessible if logged in */}
+        
         <Route path="about" element={<PrivateRouter/>}>
           <Route path="" element={<About/>}/>
         </Route>
-         {/* imp section */}
+       
         <Route path="expert" element={<PrivateRouter/>}>
           <Route path="" element={<Expert/>}/>
         </Route>
-         {/* imp section */}
+        
         <Route path="services" element={<PrivateRouter/>}>
           <Route path="" element={<Services/>}/>
         </Route>
